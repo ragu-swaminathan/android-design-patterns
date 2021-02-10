@@ -1,7 +1,7 @@
 # Android Design patterns
 Code snippet of design patterns in Android
 
-##Builder pattern
+## Builder pattern
 Typical example will be Alert Dialog in Android
 ```
 AlertDialog.Builder(this)
