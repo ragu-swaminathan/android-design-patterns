@@ -1,17 +1,11 @@
 # Android Design patterns
-Code snippet of design patterns in Android - Kotlin
+Code snippet for commonly used design patterns in Android using Kotlin
 
 ## Builder pattern
-Typical example will be Alert Dialog in Android
-```
-AlertDialog.Builder(this)
-    .setTitle("This is a title")
-    .setMessage("This is some message")
-    .show()
-```
+A kind of pattern that we use to show alert dialog.
 
 ## Singleton pattern
 
-### Using object keyword.
-### Using holder pattern
-### Using lazy initialization
+1. Using object keyword.
+2. Using holder pattern
+3. Using lazy initialization
