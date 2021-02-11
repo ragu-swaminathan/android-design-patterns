@@ -1,11 +1,12 @@
 package sam.info.designpatterns
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import sam.info.designpatterns.builder.Vehicle
+import sam.info.designpatterns.singleton.Animal
+import sam.info.designpatterns.singleton.AnimalLazy
 import sam.info.designpatterns.singleton.Flower
-import sam.info.designpatterns.singleton.FlowerNormal
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,14 +51,20 @@ class MainActivity : AppCompatActivity() {
                 instanceTwo
             )}, ${instanceOne == instanceTwo} , ${instanceOne === instanceTwo}"
         )
-        val instanceThree = FlowerNormal()
-        val instanceFour = FlowerNormal()
 
+        // Using holder patterns
+        Animal.getInstance(this).someTask()
         Log.e(
-            "Not a Singleton ",
-            "${instanceThree.hashCode()} , ${instanceFour.hashCode()} - ${instanceThree.equals(
-                instanceFour
-            )}, ${instanceThree == instanceFour} , ${instanceThree === instanceFour}"
+            "Singleton Holder ",
+            "${Animal.hashCode()} , ${Animal.hashCode()} - ${Animal.getInstance(this) == Animal.getInstance(
+                this
+            )} , ${Animal.getInstance(this) === Animal.getInstance(this)}\n${Animal.getInstance(this)
+                .hashCode()} , ${Animal.getInstance(this).hashCode()}"
+        )
+        AnimalLazy.instance.doTask()
+        Log.e(
+            "Singleton Lazy ",
+            "${AnimalLazy.instance == AnimalLazy.instance} , ${AnimalLazy.instance === AnimalLazy.instance}\n${AnimalLazy.instance.hashCode()} , ${AnimalLazy.instance.hashCode()}"
         )
     }
 }
