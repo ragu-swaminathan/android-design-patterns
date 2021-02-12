@@ -2,8 +2,6 @@ package sam.info.designpatterns.concepts
 
 import android.util.Log
 
-//TEST
-
 //The inline keyword is useful for functions that accept other functions, or lambdas, as arguments.
 inline fun sampleInline(funcType: () -> Any) {
     val output = funcType()
