@@ -59,19 +59,25 @@ class MainActivity : AppCompatActivity() {
 
         Log.e(
             "Singleton ",
-            "${instanceOne.hashCode()} , ${instanceTwo.hashCode()} - ${instanceOne.equals(
-                instanceTwo
-            )}, ${instanceOne == instanceTwo} , ${instanceOne === instanceTwo}"
+            "${instanceOne.hashCode()} , ${instanceTwo.hashCode()} - ${
+                instanceOne.equals(
+                    instanceTwo
+                )
+            }, ${instanceOne == instanceTwo} , ${instanceOne === instanceTwo}"
         )
 
         // Using holder patterns
         Animal.getInstance(this).someTask()
         Log.e(
             "Singleton Holder ",
-            "${Animal.hashCode()} , ${Animal.hashCode()} - ${Animal.getInstance(this) == Animal.getInstance(
-                this
-            )} , ${Animal.getInstance(this) === Animal.getInstance(this)}\n${Animal.getInstance(this)
-                .hashCode()} , ${Animal.getInstance(this).hashCode()}"
+            "${Animal.hashCode()} , ${Animal.hashCode()} - ${
+                Animal.getInstance(this) == Animal.getInstance(
+                    this
+                )
+            } , ${Animal.getInstance(this) === Animal.getInstance(this)}\n${
+                Animal.getInstance(this)
+                    .hashCode()
+            } , ${Animal.getInstance(this).hashCode()}"
         )
         AnimalLazy.instance.doTask()
         Log.e(
@@ -83,8 +89,8 @@ class MainActivity : AppCompatActivity() {
     private fun mvvmPat() {
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        userViewModel.getUserData().observe(this, Observer {
-            Log.e("LIst size", "${it.size}")
+        userViewModel.getUserDataLD().observe(this, Observer {
+            Log.e("List size", "${it.size}")
         })
     }
 }

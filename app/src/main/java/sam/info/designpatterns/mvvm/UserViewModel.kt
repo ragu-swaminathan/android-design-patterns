@@ -1,9 +1,8 @@
 package sam.info.designpatterns.mvvm
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import sam.info.designpatterns.notifyObserver
 
 
 class UserViewModel : ViewModel() {
@@ -13,16 +12,16 @@ class UserViewModel : ViewModel() {
 
     init {
         repo = DataRepo()
-        usersLiveData.postValue(repo.getUsers())
     }
 
-    fun getUserData(): LiveData<List<String>> {
+    fun getUserDataLD(): MutableLiveData<List<String>> {
+        usersLiveData.postValue(repo.getUsers())
         return usersLiveData
     }
 
     fun addUserData(name: String) {
         repo.addUser(name)
-        usersLiveData.postValue(repo.getUsers())
+        usersLiveData.notifyObserver()
     }
 }
 
