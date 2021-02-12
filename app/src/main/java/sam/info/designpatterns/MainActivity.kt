@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import sam.info.designpatterns.builder.Vehicle
+import sam.info.designpatterns.concepts.*
 import sam.info.designpatterns.mvvm.CustomViewModel
 import sam.info.designpatterns.mvvm.CustomViewModelFactory
 import sam.info.designpatterns.mvvm.UserAndroidViewModel
@@ -31,9 +32,11 @@ class MainActivity : AppCompatActivity() {
         }
 //        builderPat()
 //        singleTonPat()
-        mvvmPat()
-        mvvmPatCustom()
-        mvvmPatAndroidVM()
+//        mvvmPat()
+//        mvvmPatCustom()
+//        mvvmPatAndroidVM()
+//        callInlineFunctions()
+        callGenericFunctions()
     }
 
     private fun builderPat() {
@@ -121,5 +124,18 @@ class MainActivity : AppCompatActivity() {
         userAndroidViewModel.getUserDataLD().observe(this, Observer {
             Log.e("customUserViewModel", "${it.size}")
         })
+    }
+
+    private fun callInlineFunctions() {
+        sampleInline { addInline(5, 6) }
+        sampleInline { starInline(5, 6) }
+    }
+
+    private fun callGenericFunctions() {
+        simpleGenerics("String Value")
+        simpleGenerics(100)
+        simpleGenericsWithClass(100, Int::class.java)
+        simpleGenericsReified(100)
+        simpleGenericsReified("OK OK ")
     }
 }

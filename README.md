@@ -28,3 +28,8 @@ ViewModel : Act as a bridge between the Model and the View. Contains UI logics. 
  Sample for MVVM with the following implementations
  1. Standared Viewmodel approach
  2. Viewmodel approach with params.
+
+
+# Concepts
+1. Inline Functions
+2. Generics basics
