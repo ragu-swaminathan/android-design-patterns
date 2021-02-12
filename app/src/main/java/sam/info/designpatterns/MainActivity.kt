@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import sam.info.designpatterns.builder.Vehicle
 import sam.info.designpatterns.mvvm.CustomViewModel
 import sam.info.designpatterns.mvvm.CustomViewModelFactory
+import sam.info.designpatterns.mvvm.UserAndroidViewModel
 import sam.info.designpatterns.mvvm.UserViewModel
 import sam.info.designpatterns.singleton.Animal
 import sam.info.designpatterns.singleton.AnimalLazy
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var userViewModel: UserViewModel
     lateinit var customUserViewModel: CustomViewModel
+    lateinit var userAndroidViewModel: UserAndroidViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        singleTonPat()
         mvvmPat()
         mvvmPatCustom()
+        mvvmPatAndroidVM()
     }
 
     private fun builderPat() {
@@ -105,6 +108,17 @@ class MainActivity : AppCompatActivity() {
             )
 
         customUserViewModel.getUserDataLD().observe(this, Observer {
+            Log.e("customUserViewModel", "${it.size}")
+        })
+    }
+
+    private fun mvvmPatAndroidVM() {
+        userAndroidViewModel =
+            ViewModelProvider(this).get(
+                UserAndroidViewModel::class.java
+            )
+
+        userAndroidViewModel.getUserDataLD().observe(this, Observer {
             Log.e("customUserViewModel", "${it.size}")
         })
     }

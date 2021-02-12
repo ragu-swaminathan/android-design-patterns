@@ -24,3 +24,7 @@ View : A typical user interface. Inflated with the help of XML as layouts.
 
 ViewModel : Act as a bridge between the Model and the View. Contains UI logics. Manage the UI related complexities like data loss due to screen orientation.
  Ref : https://developer.android.com/topic/libraries/architecture/viewmodel
+
+ Sample for MVVM with the following implementations
+ 1. Standared Viewmodel approach
+ 2. Viewmodel approach with params.
