@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import sam.info.designpatterns.builder.Vehicle
+import sam.info.designpatterns.mvvm.CustomViewModel
+import sam.info.designpatterns.mvvm.CustomViewModelFactory
 import sam.info.designpatterns.mvvm.UserViewModel
 import sam.info.designpatterns.singleton.Animal
 import sam.info.designpatterns.singleton.AnimalLazy
@@ -16,6 +18,7 @@ import sam.info.designpatterns.singleton.Flower
 class MainActivity : AppCompatActivity() {
 
     lateinit var userViewModel: UserViewModel
+    lateinit var customUserViewModel: CustomViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 //        builderPat()
 //        singleTonPat()
         mvvmPat()
+        mvvmPatCustom()
     }
 
     private fun builderPat() {
@@ -91,6 +95,17 @@ class MainActivity : AppCompatActivity() {
 
         userViewModel.getUserDataLD().observe(this, Observer {
             Log.e("List size", "${it.size}")
+        })
+    }
+
+    private fun mvvmPatCustom() {
+        customUserViewModel =
+            ViewModelProvider(this, CustomViewModelFactory(this, "Custom name passed")).get(
+                CustomViewModel::class.java
+            )
+
+        customUserViewModel.getUserDataLD().observe(this, Observer {
+            Log.e("customUserViewModel", "${it.size}")
         })
     }
 }
