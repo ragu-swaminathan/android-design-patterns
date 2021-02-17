@@ -42,3 +42,4 @@ ViewModel : Act as a bridge between the Model and the View. Contains UI logics. 
         * Help us to avoid the "non-local returns".
 
 * Generics basics
+    * Keyword : **reified**
