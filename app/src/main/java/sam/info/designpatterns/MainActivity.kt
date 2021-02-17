@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 //        mvvmPat()
 //        mvvmPatCustom()
 //        mvvmPatAndroidVM()
-//        callInlineFunctions()
-        callGenericFunctions()
+        callInlineFunctions()
+//        callGenericFunctions()
     }
 
     private fun builderPat() {
@@ -127,8 +127,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callInlineFunctions() {
-        sampleInline { addInline(5, 6) }
-        sampleInline { starInline(5, 6) }
+//        sampleInline { addInline(5, 6) }
+//        sampleInline { starInline(5, 6) }
+//        sampleNoInline({ addInline(5, 6) }, { starInline(5, 6)})
+        sampleCrossInline({
+            addInline(5, 6)
+        }, {
+            starInline(5, 6)
+        })
     }
 
     private fun callGenericFunctions() {
