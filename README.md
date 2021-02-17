@@ -32,16 +32,13 @@ ViewModel : Act as a bridge between the Model and the View. Contains UI logics. 
 
 # Concepts
 * Inline Functions
-    Keyword : inline
-    Points/Usage:
+    * Keyword : **inline**
         * Accept other functions, or lambdas, as arguments.
         * Function call overhead doesn't occur. -> usage of memory, time and other resources.
         * Time taken to run the code inside the fun is < calling a fun that contains code. (ns)
-    Keyword : noinline
-        Points/Usage:
+    * Keyword : **noinline**
         * Avoid the function being inline
-    Keyword : crossinline
-        Points/Usage:
+    * Keyword : **crossinline**
         * Help us to avoid the "non-local returns".
 
 * Generics basics
